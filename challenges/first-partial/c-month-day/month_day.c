@@ -7,15 +7,16 @@
 void month_day(int year, int yearday, int *pmonth, int *pday){
     int bis = year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
     char dmes[2][12] = {{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31},{31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}};
-
+    
     if((bis == 0 && yearday > 365) || (bis == 1 && yearday > 366) || (yearday < 1)){
         printf("Dias incorrectos\n");
-        exit(0);
+        exit(0); 
     }
+    
     for (int i = 0; i < 12; i++){
         *pmonth = i;
         if (*pday <= dmes[bis][i]){
-            return;
+            return; 
         }
         *pday -= dmes[bis][i];
     }
