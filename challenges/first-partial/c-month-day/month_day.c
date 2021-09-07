@@ -12,7 +12,6 @@ void month_day(int year, int yearday, int *pmonth, int *pday){
         printf("Dias incorrectos\n");
         exit(0); 
     }
-    
     for (int i = 0; i < 12; i++){
         *pmonth = i;
         if (*pday <= dmes[bis][i]){
@@ -27,7 +26,7 @@ int main(int argc, char **argv) {
         for (int i = 1; i < argc; ++i) {
             for(int j=0; j < strlen(argv[i]); j++){
                 if(!isdigit(argv[i][j])){
-                    printf("Character no valido \n");
+                    printf("Character no valido\n");
                     return -1;
                 } 
             }
@@ -41,7 +40,7 @@ int main(int argc, char **argv) {
         printf("%s %02d, %d\n",mes[num], day, year);
     }
     else{
-        printf("Numero incorrecto de argumentos \n");
+        printf("Numero incorrecto de argumentos\n");
         return 0;
     }
 }
