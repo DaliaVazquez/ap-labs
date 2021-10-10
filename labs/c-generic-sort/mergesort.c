@@ -2,7 +2,7 @@ void merge(void* lineptr[], int left, int mitad, int right, int (*comp)(void *, 
 {	    
     for (int i=mitad;i<=right;i++)
     {
-        for(int j=0;j<mitad;j++)
+        for(int j=0;j<=mitad;j++)
         {
             if ((*comp)(lineptr[i],lineptr[j])<0) {
                 void* tmp=lineptr[i];
