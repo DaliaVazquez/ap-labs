@@ -24,7 +24,7 @@ int numcmp(char *s1, char *s2) {
 
 int main(int argc, char **argv)
 {
-	if(argc<4 || argc > 6){
+	if(argc<3 || argc > 6){
 		printf("Invalid number of arguments\n");
 		return 0;
 	}
