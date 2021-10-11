@@ -2,16 +2,48 @@
 #include <string.h>
 #include <stdio.h>
 
+#define MAXLINES 5000
+char *lineptr[MAXLINES];
+
 void quicksort(void *lineptr[], int left, int right,
 	   int (*comp)(void *, void *));
 
 void mergesort(void *lineptr[], int left, int right,
 	   int (*comp)(void *, void *));
 
+int numcmp(char *s1, char *s2) {
+    double v1, v2;
+    v1 = atof(s1);
+    v2 = atof(s2);
+    if(v1 < v2) 
+        return -1;
+    if(v1 > v2)
+        return 1;
+    return 0;
+}
+
+int readlines(FILE *input, int nlines)
+{
+    char *line;
+    size_t len = 0;
+    ssize_t read;
+
+    while ((read = getline(&line, &len, input) != -1))
+    {
+        if (nlines == MAXLINES)
+        {
+            printf("File too big to be sorted");
+            exit(0);
+        }
+        lineptr[nlines] = malloc(strlen(line));
+        strcpy(lineptr[nlines++], line);
+    }
+    return nlines;
+}
 
 int main(int argc, char **argv)
 {
-	if(argc<4){
+	if(argc<4 || argc > 6){
 		printf("Invalid number of arguments\n");
 		return 0;
 	}
@@ -56,6 +88,9 @@ int main(int argc, char **argv)
 		strcpy(outputFile, tmp);
 		strcat(outputFile, fileToRead);
 	}
+	int nlines = 0;
+	nlines = readlines(archivo, nlines);
+    fclose(archivo);	
 
     return 0;
 }
