@@ -1,6 +1,13 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h> 
+#include <unistd.h>
 
 #define REPORT_FILE "report.txt"
+#define HASHSIZE 1000
 
 void analizeLog(char *logFile, char *report);
 
@@ -20,6 +27,7 @@ void analizeLog(char *logFile, char *report) {
     printf("Generating Report from: [%s] log file\n", logFile);
 
     // Implement your solution here.
+    
 
     printf("Report is generated at: [%s]\n", report);
 }
