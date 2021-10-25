@@ -83,6 +83,7 @@ void analizeLog(char *logFile, char *report) {
     struct nlist *ini;
     struct Node *nodes;
     off_t n;
+    int f, me;
     char buf[10];
     long tam=0;
     ssize_t num;
@@ -127,6 +128,8 @@ void analizeLog(char *logFile, char *report) {
                 {
                     log[ind++]=line[i];
                 }
+                me=1;
+                f=1;
                 for (int i = fin; i < len; i++)
                 {
                     log[ind++]=line[i];
@@ -143,7 +146,10 @@ void analizeLog(char *logFile, char *report) {
             free(line);
         }
     }
-
+    if(me>0){
+        f=1;
+        me=0;
+    }
     if (tam>0){
         if((n=lseek(file,-tam,SEEK_CUR))==-1){
             printf("Error\n");
