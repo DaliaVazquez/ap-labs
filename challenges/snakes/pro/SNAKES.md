@@ -1,6 +1,6 @@
 # Snakes Game
 
-Concurrent Snake Game in go.
+Snake Game in go that permit to choose the number of enemies and the number of mouses in it.
 
 ## Technical Requirements
 - Install Go 
